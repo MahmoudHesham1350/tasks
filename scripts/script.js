@@ -23,7 +23,12 @@ document.addEventListener("DOMContentLoaded", function() {
             let tasks = fetchTasks();
             tasks.forEach(task => {
                 if (task.text === taskText) {
-                    task.done = true;
+                    if (task.done){
+                        task.done = false;
+                    }
+                    else {
+                        task.done = true;
+                    }
                 }
             });
             localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -55,9 +60,9 @@ function renderTasks(){
     let container = document.querySelector(".list-group");
     for (let task of tasks){
         if (task["done"]){
-            container.innerHTML += `<div class="list-group-item d-flex justify-content-between align-items-center">
+            container.innerHTML += `<div class="list-group-item d-flex justify-content-between align-items-center" style=" background-color: green;">
             <span style="text-decoration: line-through;">${task["text"]}</span>
-            <button class="btn btn-danger btn-sm remove">Remove</button>
+            <button class="btn btn-secondary btn-sm remove">Remove</button>
             </div>`
         }
         else {
