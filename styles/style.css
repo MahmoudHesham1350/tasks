@@ -1,0 +1,11 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.fluid-container {
+    width: 80%;
+    margin: auto;
+    max-width: 600px;
+}
